@@ -1,0 +1,63 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:org.bedework.subsystem.calendar:1.0"
+           xmlns="urn:org.bedework.subsystem.calendar:1.0"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="1.0">
+
+  <!-- The subsystem root element -->
+  <xs:element name="subsystem" type="subsystemType"/>
+
+  <xs:complexType name="subsystemType">
+    <xs:annotation>
+      <xs:documentation>
+        <![CDATA[
+           The bedework calendar server subsystem, used to configure the
+           service.
+                ]]>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="indexing" type="indexingType"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="system" type="systemType"
+                  minOccurs="0" maxOccurs="1"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="indexingType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="account" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="indexerUrl" type="xs:anyURI"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="indexerUser" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="indexerPw" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="keystore" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="keystorePw" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="systemType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="eventregAdminToken" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="eventregUrl" type="xs:anyURI"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="rootUsers" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="suggestionEnabled" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="systemid" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="tzid" type="xs:string"
+                  minOccurs="0" maxOccurs="1"/>
+      <xs:element name="workflowEnabled" type="xs:boolean"
+                  minOccurs="0" maxOccurs="1"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

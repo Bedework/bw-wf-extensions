@@ -1,0 +1,19 @@
+<subsystem xmlns="urn:org.bedework.subsystem.calendar:1.0">
+    <indexing>
+        <account>admin</account>
+        <indexerUrl>${com.bedework.oschurls}</indexerUrl>
+        <indexerUser>admin</indexerUser>
+        <indexerPw>admin</indexerPw>
+        <keystore>${org.bedework.config.dir}/opensearch/config/osch.keystore</keystore>
+        <keystorePw>nopassword</keystorePw>
+    </indexing>
+    <system>
+        <eventregAdminToken>ba48c4dc-ab49-4f55-b2c5-02cd450d2762</eventregAdminToken>
+        <eventregUrl>http://localhost:8080/eventreg/</eventregUrl>
+        <rootUsers>admin</rootUsers>
+        <suggestionEnabled>false</suggestionEnabled>
+        <systemid>demobedework@mysite.edu</systemid>
+        <tzid>America/New_York</tzid>
+        <workflowEnabled>false</workflowEnabled>
+    </system>
+</subsystem>

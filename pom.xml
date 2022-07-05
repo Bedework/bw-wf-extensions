@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.bedework</groupId>
+    <artifactId>bedework-parent</artifactId>
+    <version>22-SNAPSHOT</version>
+  </parent>
+
+  <packaging>pom</packaging>
+
+  <artifactId>bw-wf-extensions</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Bedework: configuration utils</name>
+  <description>This project provides a number of utility configuration classes and methods</description>
+  <url>https://github.com/Bedework/bw-wf-extensions</url>
+
+  <scm>
+    <connection>scm:git:git@github.com:Bedework/bw-wf-extensions.git</connection>
+    <developerConnection>scm:git:git@github.com:Bedework/bw-wf-extensions.git</developerConnection>
+    <url>https://github.com/Bedework/bw-wf-extensions</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <modules>
+    <module>bw-wf-calendar-subsystem</module>
+  </modules>
+</project>
