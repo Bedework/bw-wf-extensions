@@ -1,5 +1,7 @@
 package org.bedework.subsystem.extension.calendar;
 
+import org.bedework.subsystem.extension.calendar.indexing.ListIndexOperation;
+
 import org.jboss.as.controller.SimpleResourceDefinition;
 import org.jboss.as.controller.operations.common.GenericSubsystemDescribeHandler;
 import org.jboss.as.controller.registry.ManagementResourceRegistration;
@@ -23,8 +25,13 @@ public class BwCalendarSubsystemDefinition extends SimpleResourceDefinition {
     public void registerOperations(
             final ManagementResourceRegistration resourceRegistration) {
         super.registerOperations(resourceRegistration);
+
         resourceRegistration.registerOperationHandler(
                 GenericSubsystemDescribeHandler.DEFINITION,
                 GenericSubsystemDescribeHandler.INSTANCE);
+
+        resourceRegistration.registerOperationHandler(
+                ListIndexOperation.DEFINITION,
+                new ListIndexOperation());
     }
 }

@@ -55,10 +55,13 @@ public class BwCalendarExtension implements Logged, Extension {
           new SystemResourceDefinition();
 
   public static StandardResourceDescriptionResolver getResourceDescriptionResolver(
-          final String keyPrefix) {
-    final String prefix = SUBSYSTEM_NAME + (keyPrefix == null ? "" : "." + keyPrefix);
+          final String... keyPrefix) {
+    final StringBuilder prefix = new StringBuilder(SUBSYSTEM_NAME);
+    for (final String kp : keyPrefix) {
+      prefix.append('.').append(kp);
+    }
     return new StandardResourceDescriptionResolver(
-            prefix,
+            prefix.toString(),
             RESOURCE_NAME,
             BwCalendarExtension.class.getClassLoader(),
             true,
@@ -87,9 +90,9 @@ public class BwCalendarExtension implements Logged, Extension {
     subsystem.registerXMLElementWriter(parser);
   }
 
-  /* ====================================================================
+  /* ==============================================================
    *                   Logged methods
-   * ==================================================================== */
+   * ============================================================== */
 
   private final BwLogger logger = new BwLogger();
 
