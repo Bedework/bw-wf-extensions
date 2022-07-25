@@ -1,5 +1,6 @@
 package org.bedework.subsystem.extension.calendar;
 
+import org.bedework.subsystem.extension.calendar.dbconfig.DbconfigResourceDefinition;
 import org.bedework.subsystem.extension.calendar.indexing.IndexingResourceDefinition;
 import org.bedework.subsystem.extension.calendar.system.SystemResourceDefinition;
 import org.bedework.util.logging.BwLogger;
@@ -48,6 +49,9 @@ public class BwCalendarExtension implements Logged, Extension {
   public static final ResourceDefinition BwCalendarSubsystemResource =
           new BwCalendarSubsystemDefinition();
 
+  public static final DbconfigResourceDefinition DbconfigResourceDefinition =
+          new DbconfigResourceDefinition();
+
   public static final IndexingResourceDefinition indexingResourceDefinition =
           new IndexingResourceDefinition();
 
@@ -84,8 +88,9 @@ public class BwCalendarExtension implements Logged, Extension {
     final ManagementResourceRegistration subsystemRegistration =
             subsystem.registerSubsystemModel(BwCalendarSubsystemResource);
 
-    subsystemRegistration.registerSubModel(systemResourceDefinition);
+    subsystemRegistration.registerSubModel(DbconfigResourceDefinition);
     subsystemRegistration.registerSubModel(indexingResourceDefinition);
+    subsystemRegistration.registerSubModel(systemResourceDefinition);
 
     subsystem.registerXMLElementWriter(parser);
   }

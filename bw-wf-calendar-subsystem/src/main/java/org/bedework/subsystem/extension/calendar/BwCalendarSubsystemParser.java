@@ -3,6 +3,8 @@
 */
 package org.bedework.subsystem.extension.calendar;
 
+import org.bedework.subsystem.extension.calendar.dbconfig.DbconfigResourceDefinition;
+import org.bedework.subsystem.extension.calendar.dbconfig.DbconfigResourceParser;
 import org.bedework.subsystem.extension.calendar.indexing.IndexingResourceDefinition;
 import org.bedework.subsystem.extension.calendar.indexing.IndexingResourceParser;
 import org.bedework.subsystem.extension.calendar.system.SystemResourceDefinition;
@@ -43,6 +45,9 @@ public class BwCalendarSubsystemParser
     //Read the children
     while (reader.hasNext() && reader.nextTag() != END_ELEMENT) {
       if (reader.getLocalName().equals(
+              DbconfigResourceDefinition.TAG_NAME)) {
+        DbconfigResourceParser.read(list, reader);
+      } else if (reader.getLocalName().equals(
               IndexingResourceDefinition.TAG_NAME)) {
         IndexingResourceParser.read(list, reader);
       } else if (reader.getLocalName().equals(
@@ -59,6 +64,7 @@ public class BwCalendarSubsystemParser
                            final SubsystemMarshallingContext context) throws XMLStreamException {
     context.startSubsystemElement(BwCalendarExtension.NAMESPACE, false);
 
+    DbconfigResourceParser.write(writer, context);
     IndexingResourceParser.write(writer, context);
     SystemResourceParser.write(writer, context);
 

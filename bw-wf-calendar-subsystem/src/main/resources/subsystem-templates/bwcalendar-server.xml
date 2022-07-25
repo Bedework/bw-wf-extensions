@@ -20,6 +20,9 @@
 <config>
     <extension-module>org.bedework.subsystem.extensions.calendar</extension-module>
     <subsystem xmlns="urn:org.bedework.subsystem.calendar:1.0">
+        <dbconfig>
+            <hibernateDialect>org.hibernate.dialect.H2Dialect</hibernateDialect>
+        </dbconfig>
         <indexing>
             <account>admin</account>
             <indexerUrl>${com.bedework.oschurls}</indexerUrl>

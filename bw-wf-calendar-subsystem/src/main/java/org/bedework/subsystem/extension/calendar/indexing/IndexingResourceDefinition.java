@@ -106,6 +106,16 @@ public class IndexingResourceDefinition
     }
   }
 
+  @Override
+  public void registerOperations(
+          final ManagementResourceRegistration resourceRegistration) {
+    super.registerOperations(resourceRegistration);
+
+    resourceRegistration.registerOperationHandler(
+            ListIndexOperation.DEFINITION,
+            new ListIndexOperation());
+  }
+
   public IndexingResourceDefinition() {
     super(PathElement.pathElement(TAG_NAME),
           BwCalendarExtension.getResourceDescriptionResolver(TAG_NAME),
