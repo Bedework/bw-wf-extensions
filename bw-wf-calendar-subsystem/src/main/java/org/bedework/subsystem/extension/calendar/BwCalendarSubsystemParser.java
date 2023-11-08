@@ -54,7 +54,7 @@ public class BwCalendarSubsystemParser
               SystemResourceDefinition.TAG_NAME)) {
         SystemResourceParser.read(list, reader);
       } else {
-        throw new XMLStreamException("Unknown keycloak-server subsystem tag: " + reader.getLocalName());
+        throw new XMLStreamException("Unknown bedework-calendar subsystem tag: " + reader.getLocalName());
       }
     }
   }

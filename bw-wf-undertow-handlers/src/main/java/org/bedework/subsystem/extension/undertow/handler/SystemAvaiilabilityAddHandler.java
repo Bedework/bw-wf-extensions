@@ -15,10 +15,9 @@
  * the License.
  */
 
-package org.bedework.subsystem.extension.calendar.system;
+package org.bedework.subsystem.extension.undertow.handler;
 
-import org.bedework.subsystem.extension.BwCalendarConfigService;
-import org.bedework.subsystem.extension.BwExtensionDefinitions;
+import org.bedework.subsystem.extension.undertow.BwUndertowExtensionDefinitions;
 
 import org.jboss.as.controller.AbstractAddStepHandler;
 import org.jboss.as.controller.AttributeDefinition;
@@ -27,8 +26,6 @@ import org.jboss.as.controller.PathAddress;
 import org.jboss.dmr.ModelNode;
 
 import static java.lang.String.format;
-import static org.bedework.subsystem.extension.calendar.system.SystemResourceDefinition.ALL_ATTRIBUTES;
-import static org.bedework.subsystem.extension.calendar.system.SystemResourceDefinition.TAG_NAME;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADD;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.ADDRESS;
 import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OP;
@@ -36,10 +33,11 @@ import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.OP;
 /**
  *
  */
-public class SystemResourceAddHandler extends AbstractAddStepHandler {
-  public static SystemResourceAddHandler INSTANCE = new SystemResourceAddHandler();
+public class SystemAvaiilabilityAddHandler extends AbstractAddStepHandler {
+  public static SystemAvaiilabilityAddHandler INSTANCE =
+          new SystemAvaiilabilityAddHandler();
 
-  private SystemResourceAddHandler() {}
+  private SystemAvaiilabilityAddHandler() {}
 
   @Override
   protected void populateModel(final ModelNode operation,
@@ -52,16 +50,14 @@ public class SystemResourceAddHandler extends AbstractAddStepHandler {
 
     final PathAddress address = PathAddress.pathAddress(operation.get(ADDRESS));
     final String lastVal = address.getLastElement().getValue();
-    if (!lastVal.equals(BwExtensionDefinitions.defaultValue)) {
+    if (!lastVal.equals(BwUndertowExtensionDefinitions.defaultValue)) {
       throw new OperationFailedException(
               format("%s resource with name %s not allowed.",
-                     TAG_NAME, lastVal));
+                     SystemAvailabilityDefinition.TAG_NAME, lastVal));
     }
 
-    for (final AttributeDefinition def: ALL_ATTRIBUTES) {
+    for (final AttributeDefinition def: SystemAvailabilityDefinition.ATTRIBUTES) {
       def.validateAndSet(operation, model);
     }
-
-    BwCalendarConfigService.INSTANCE.updateConfig(operation, model);
   }
 }

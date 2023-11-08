@@ -26,5 +26,6 @@
 
   <modules>
     <module>bw-wf-calendar-subsystem</module>
+    <module>bw-wf-undertow-handlers</module>
   </modules>
 </project>

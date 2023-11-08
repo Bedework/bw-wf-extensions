@@ -26,7 +26,7 @@ public class BwCalendarConfigService {
   public void updateConfig(final ModelNode operation,
                            final ModelNode config) {
     PathAddress address = PathAddress.pathAddress(operation.get(ADDRESS));
-    address = address.subAddress(1); // remove root (subsystem=keycloak-server)
+    address = address.subAddress(1); // remove root (subsystem=bedework-config)
 
     final ModelNode newConfig = fullConfig.clone();
     ModelNode subNode = newConfig;
