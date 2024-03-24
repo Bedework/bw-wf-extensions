@@ -30,3 +30,6 @@ For full details, see [Sonatype's documentation for using Maven to publish relea
 ## Release Notes
 ### 1.0.0
 * First version committed
+
+#### 1.0.1
+* Updated version of bw-calws-soap    
