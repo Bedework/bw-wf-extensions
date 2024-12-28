@@ -42,6 +42,14 @@ public class SystemResourceDefinition
                   .setRestartAllServices()
                   .build();
 
+  static final SimpleAttributeDefinition EVENTREGWS_URL =
+          new SimpleAttributeDefinitionBuilder("eventregWSUrl",
+                                               ModelType.STRING, true)
+                  .setAllowExpression(true)
+                  .setDefaultValue(new ModelNode("http://localhost:8080/eventregws/"))
+                  .setRestartAllServices()
+                  .build();
+
   static final SimpleAttributeDefinition ROOT_USERS =
           new SimpleAttributeDefinitionBuilder("rootUsers",
                                                ModelType.STRING, true)

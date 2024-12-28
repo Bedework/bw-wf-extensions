@@ -13,6 +13,7 @@
     <system>
         <eventregAdminToken>ba48c4dc-ab49-4f55-b2c5-02cd450d2762</eventregAdminToken>
         <eventregUrl>http://localhost:8080/eventreg/</eventregUrl>
+        <eventregWSUrl>http://localhost:8080/eventregws/</eventregWSUrl>
         <rootUsers>admin</rootUsers>
         <suggestionEnabled>false</suggestionEnabled>
         <systemid>demobedework@mysite.edu</systemid>
