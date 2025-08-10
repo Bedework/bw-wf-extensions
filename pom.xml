@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.bedework</groupId>
     <artifactId>bedework-parent</artifactId>
-    <version>200-SNAPSHOT</version>
+    <version>229</version>
   </parent>
 
   <packaging>pom</packaging>
@@ -26,5 +26,6 @@
 
   <modules>
     <module>bw-wf-calendar-subsystem</module>
+    <module>bw-wf-extensions-asciidocs</module>
   </modules>
 </project>

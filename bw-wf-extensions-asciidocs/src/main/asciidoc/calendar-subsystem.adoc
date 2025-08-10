@@ -1,0 +1,4 @@
+[[calendar-subsystem]]
+== Calendar Subsystem
+This module provides extensions to the wildfly server which allow configuration of bedework via the wildfly cli
+
